@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\buildMultiTargeting\AcunMedyaAkademi-NvRFS1-NTier.props" />
-</Project>
