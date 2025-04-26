@@ -21,5 +21,10 @@ public class BaseDbContext:DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+       foreach(var relationShip in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
+        {
+            relationShip.DeleteBehavior = DeleteBehavior.Cascade;
+        }
+    
     }
 }
