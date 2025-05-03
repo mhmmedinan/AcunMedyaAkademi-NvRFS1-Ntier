@@ -3,7 +3,7 @@ using Entities;
 
 namespace Repositories.Abstracts;
 
-public interface IBrandRepository:IRepository<Brand,Guid>
+public interface IModelRepository : IRepository<Model, Guid>
 {
 }
 

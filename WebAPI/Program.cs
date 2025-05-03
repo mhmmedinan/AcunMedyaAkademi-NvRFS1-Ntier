@@ -1,19 +1,15 @@
-using Business.Abstracts;
-using Business.Concretes;
-using Microsoft.EntityFrameworkCore;
-using Repositories.Abstracts;
-using Repositories.Concretes;
-using Repositories.Concretes.EntityFramework.Contexts;
+using Business;
+using Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddDbContext<BaseDbContext>(op=>op.UseSqlServer(builder.Configuration.GetConnectionString("BaseDb")));
+builder.Services.AddRepositoriesServices(builder.Configuration);
+builder.Services.AddBusinessServices();
 
-builder.Services.AddScoped<IBrandService, BrandManager>();      //Her Http request için bir kez oluþturulur
-builder.Services.AddScoped<IBrandRepository, BrandRepository>();
 
+//AddScoped => //Her Http request için bir kez oluþturulur
 //AddSingleton   => Uygulama baþladýðýnda bir kez oluþturulur. Cache iþlemleri Config ayarlarýný yöneten servisler
 //AddTransiet => Her kullanýmda yeni bir nesne oluþturur.EmailSenderService
 
