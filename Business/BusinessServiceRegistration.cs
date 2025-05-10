@@ -1,4 +1,5 @@
 ﻿using Core.Extensions;
+using Core.Rules;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
@@ -11,6 +12,7 @@ public static class BusinessServiceRegistration
         services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
         services.RegisterAssemblyTypes(Assembly.GetExecutingAssembly()).Where(t => t.ServiceType.Name.EndsWith("Manager"));
+        services.AddSubClassesOfType(Assembly.GetExecutingAssembly(), typeof(BaseBusinessRules));
         return services;
     }
 }
