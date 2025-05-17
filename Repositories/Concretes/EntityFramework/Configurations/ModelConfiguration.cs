@@ -22,4 +22,3 @@ public class ModelConfiguration : IEntityTypeConfiguration<Model>
         builder.HasMany(b => b.Cars);
     }
 }
-

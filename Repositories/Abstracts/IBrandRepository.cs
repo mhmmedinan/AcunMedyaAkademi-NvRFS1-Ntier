@@ -6,4 +6,3 @@ namespace Repositories.Abstracts;
 public interface IBrandRepository:IRepository<Brand,Guid>
 {
 }
-
