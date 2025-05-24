@@ -13,6 +13,7 @@ public class BrandManager : IBrandService
     private readonly IBrandRepository _brandRepository;
     private readonly IMapper _mapper;
     private readonly BrandBusinessRules _brandBusinessRules;
+    
 
     public BrandManager(IBrandRepository brandRepository, IMapper mapper, BrandBusinessRules brandBusinessRules)
     {

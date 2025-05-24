@@ -17,7 +17,7 @@ public class HashingHelper
 
     public static bool VerifyPasswordHash(string password, byte[] passwordHash, byte[] passwordSalt)
     {
-        using (var hmac = new HMACSHA512())
+        using (var hmac = new HMACSHA512(passwordSalt))
         {
             var computeHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
 
